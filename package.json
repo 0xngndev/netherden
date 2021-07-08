@@ -1,15 +1,23 @@
-
 {
   "private": true,
   "name": "mono",
-  "workspaces": ["packages/*"],
+  "workspaces": [
+    "packages/*"
+  ],
   "scripts": {
     "hardhat": "yarn workspace @mono/hardhat hardhat",
-
     "subgraph": "yarn workspace @mono/subgraph",
-    
     "next": "yarn workspace @mono/next",
     "dev": "yarn next dev",
     "lint": "yarn next lint"
+  },
+  "dependencies": {
+    "@openzeppelin/contracts": "^4.2.0",
+    "@types/styled-components": "^5.1.11",
+    "axios": "^0.21.1",
+    "framer-motion": "^4.1.17",
+    "ipfs-http-client": "^34.0.0",
+    "styled-components": "^5.3.0",
+    "web3modal": "^1.9.3"
   }
 }
