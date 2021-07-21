@@ -33,6 +33,10 @@ const config: HardhatUserConfig = {
         kovan: { accounts, ...getRemoteNetworkConfig("kovan") },
         rinkeby: { accounts, ...getRemoteNetworkConfig("rinkeby") },
         ropsten: { accounts, ...getRemoteNetworkConfig("ropsten") },
+        mumbai: {
+            ...getRemoteNetworkConfig("mumbai"),
+            accounts: [`${process.env.MATICVIGIL_API_KEY}`],
+        },
     },
     paths: {
         artifacts: "./artifacts",
@@ -41,7 +45,7 @@ const config: HardhatUserConfig = {
         tests: "./test",
     },
     solidity: {
-        version: "0.8.0",
+        version: "0.8.4",
         settings: {
             // https://hardhat.org/hardhat-network/#solidity-optimizer-support
             optimizer: {
@@ -60,8 +64,8 @@ const config: HardhatUserConfig = {
         excludeContracts: ["Mock", "ERC20"],
     },
     etherscan: {
-        apiKey: process.env.ETHERSCAN_API_KEY
-    }
+        apiKey: process.env.ETHERSCAN_API_KEY,
+    },
 };
 
 export default config;

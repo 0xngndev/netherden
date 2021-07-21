@@ -36,7 +36,8 @@ const getMaticVigilConfig = (network: MaticVigilChain): { url: string; chainId: 
         throw new Error("Please set your MATICVIGIL_API_KEY in a .env file");
     }
     return {
-        url: `https://rpc-${network}.maticvigil.com/v1/${maticVigilApiKey}`,
+        // url: `https://rpc-${network}.maticvigil.com/v1/${maticVigilApiKey}`,
+        url: `https://polygon-mumbai.infura.io/v3/${process.env.INFURA_PROJECT_ID}`,
         chainId: ChainId[network],
     };
 };
