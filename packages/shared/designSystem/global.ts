@@ -8,6 +8,7 @@ export const GlobalStyles = createGlobalStyle`
         --gray: var(--grey);
         --maxWidth: 1000px;
         --bs: 7px 12px 24px 0 rgba(0,0,0,0.19);
+        --bgColor: #07101A;
 		font-size: 62.5%; 
     }
     *, *:before, *:after {
