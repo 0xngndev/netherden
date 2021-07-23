@@ -1,5 +1,6 @@
 import Head from "next/head";
-import Header from "../components/Header/Header";
+import Header from "../components/Header/";
+import Hero from "../components/Hero";
 // import addToken from "../helpers/addToken";
 
 const Home: React.FC = () => {
@@ -16,6 +17,7 @@ const Home: React.FC = () => {
         <button onClick={() => addToken()}>Click here to ad token lawl</button>
       )} */}
       <Header />
+      <Hero />
     </div>
   );
 };

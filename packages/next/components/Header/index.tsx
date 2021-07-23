@@ -78,6 +78,7 @@ const LogoText = styled.h1`
   font-size: 5rem;
   color: var(--primaryColor);
   text-shadow: -1px 2px 26px #662be3;
+  cursor: pointer;
 `;
 
 const LinksContainer = styled.div`
@@ -93,6 +94,10 @@ const NavItem = styled.h3`
   align-items: center;
   padding: 0px 3rem;
   height: 100%;
+
+  & a {
+    text-decoration: none;
+  }
 `;
 
 const ButtonContainer = styled.div`
@@ -102,7 +107,7 @@ const ButtonContainer = styled.div`
   margin-right: 3rem;
 `;
 
-const ButtonText = styled.span`
+export const ButtonText = styled.span`
   width: 100%;
   font-size: 14px;
   line-height: 24px;
@@ -112,8 +117,9 @@ const ButtonText = styled.span`
 `;
 
 const HeaderButton = styled(Button)<HeaderButtonProps>`
-  padding: 1.2rem 4rem;
   margin-right: 5rem;
+  padding: 1.2rem 4rem;
+  cursor: pointer;
 
   background: ${(props) =>
     props.hasBackground ? "var(--primaryColor)" : "transparent"};
@@ -127,7 +133,7 @@ const HeaderButton = styled(Button)<HeaderButtonProps>`
   }
 `;
 
-const TopMenu = (hasBackground: boolean = true) => {
+const Header = (hasBackground: boolean = true) => {
   const [toggleSideMenu, setToggleSideMenu] = useState(false);
   // async function requestAccount() {
   //   const web3Modal = new Web3Modal();
@@ -187,4 +193,4 @@ const TopMenu = (hasBackground: boolean = true) => {
   );
 };
 
-export default TopMenu;
+export default Header;
