@@ -6,12 +6,27 @@ import Link from "next/link";
 import sizes from "../../../shared/designSystem/sizes";
 import { AiOutlineMenu, AiOutlineClose } from "react-icons/ai";
 import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 
-const SideMenuAbsoluteWrapper = styled.div<SideMenuAbsoluteWrapperProps>`
+const headerVariants = {
+  visible: {
+    opacity: 1,
+    transition: {
+      duration: 2,
+    },
+  },
+  hidden: {
+    opacity: 0,
+  },
+};
+
+const SideMenuAbsoluteWrapper = styled(
+  motion.div
+)<SideMenuAbsoluteWrapperProps>`
   display: none;
 
   @media (max-width: ${sizes.md}px) {
-    display: ${(props) => (props.toggleSideMenu ? "flex" : "none")};
+    display: flex;
     position: absolute;
     z-index: 100;
     bottom: 0;
@@ -22,8 +37,8 @@ const SideMenuAbsoluteWrapper = styled.div<SideMenuAbsoluteWrapperProps>`
 
     & svg {
       position: absolute;
-      top: 15px;
-      right: 30px;
+      top: 35px;
+      right: 50px;
       height: 30px;
       width: 30px;
       color: var(--primaryColor);
@@ -47,7 +62,7 @@ const SideMenuWrapper = styled.div`
   }
 `;
 
-const HeaderContainer = styled.div`
+const HeaderContainer = styled(motion.div)`
   display: flex;
   width: 100%;
   height: 10rem;
@@ -157,7 +172,11 @@ const Header = (hasBackground: boolean = true) => {
 
   return (
     <>
-      <HeaderContainer>
+      <HeaderContainer
+        variants={headerVariants}
+        initial="hidden"
+        animate="visible"
+      >
         <LogoContainer>
           {/* <Logo /> */}
           <LogoText>NETHERDEN</LogoText>
@@ -181,14 +200,32 @@ const Header = (hasBackground: boolean = true) => {
       </HeaderContainer>
 
       {/* MOBILE MENU */}
-      <SideMenuAbsoluteWrapper toggleSideMenu={toggleSideMenu}>
-        <AiOutlineClose onClick={onToggleSideMenu} />
-        <SideMenuWrapper>
-          {renderNavItem("FAQ")}
-          {renderNavItem("Explore")}
-          {renderNavItem("About")}
-        </SideMenuWrapper>
-      </SideMenuAbsoluteWrapper>
+      <AnimatePresence>
+        {toggleSideMenu && (
+          <SideMenuAbsoluteWrapper
+            initial={{ opacity: 0 }}
+            animate={{
+              opacity: 1,
+              transition: {
+                duration: 0.5,
+              },
+            }}
+            exit={{
+              opacity: 0,
+              transition: {
+                duration: 0.5,
+              },
+            }}
+          >
+            <AiOutlineClose onClick={onToggleSideMenu} />
+            <SideMenuWrapper>
+              {renderNavItem("FAQ")}
+              {renderNavItem("Explore")}
+              {renderNavItem("About")}
+            </SideMenuWrapper>
+          </SideMenuAbsoluteWrapper>
+        )}
+      </AnimatePresence>
     </>
   );
 };
