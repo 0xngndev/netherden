@@ -1,5 +1,4 @@
 import Head from "next/head";
-import Header from "../components/Header/";
 import Hero from "../components/Hero";
 // import addToken from "../helpers/addToken";
 
@@ -16,7 +15,7 @@ const Home: React.FC = () => {
       {/* {hasProvider && (
         <button onClick={() => addToken()}>Click here to ad token lawl</button>
       )} */}
-      <Header />
+
       <Hero />
     </div>
   );
