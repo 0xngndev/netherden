@@ -35,6 +35,7 @@ const MainPage = () => {
       <MainTitle>Featured NFTs</MainTitle>
       <MainCardContainer>
         <Card />
+        <Card />
       </MainCardContainer>
     </MainPageWrapper>
   );
