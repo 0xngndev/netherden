@@ -30,7 +30,7 @@ const CreateFormContainer = styled.div`
   align-items: center;
   width: 100%;
   height: 100%;
-  border: 1px solid var(--primaryColor);
+  /* border: 1px solid var(--primaryColor); */
 `;
 
 const CreateTitle = styled(Title)`
@@ -43,13 +43,39 @@ const CreateTitle = styled(Title)`
 `;
 
 const InputTitle = styled(Title)`
-  text-align: center;
-  font-size: 2rem;
+  align-self: start;
+  font-size: 1.5rem;
   text-shadow: -1px 2px 26px #662be3;
   line-height: 90px;
   margin: 0;
-  margin-top: 4rem;
 `;
+
+const UploadFileTitle = styled(InputTitle)`
+  padding-left: 3rem;
+`;
+
+const PreviewTitle = styled(InputTitle)`
+  padding-left: 3rem;
+`;
+
+const SellFormatTitle = styled(InputTitle)`
+  margin-right: 2rem;
+`;
+
+const DescriptionTitle = styled(InputTitle)`
+  align-self: start;
+  padding-left: 3rem;
+`;
+
+const TagsTitle = styled(InputTitle)`
+  padding-right: 5rem;
+`;
+
+const EndsTitle = styled(InputTitle)`
+  padding-right: 5rem;
+`;
+
+const ReserveTitle = styled(InputTitle)``;
 
 const FormatContainer = styled.div`
   display: flex;
@@ -70,8 +96,25 @@ const Tags = styled.span`
 `;
 
 const Input = styled.input`
-  width: 100%;
-  padding: 2rem;
+  width: 40%;
+  margin: 2rem;
+  background: transparent;
+  border: 1px solid var(--primaryColor);
+  border-radius: 6px;
+  height: 30px;
+  align-self: center;
+`;
+
+const InputDescription = styled.textarea`
+  width: 50%;
+  background: transparent;
+  border: 1px solid var(--primaryColor);
+  border-radius: 6px;
+  align-self: start;
+  min-height: 100px;
+  margin-left: 3rem;
+  margin-bottom: 2rem;
+  margin-top: 0rem;
 `;
 
 const CreateNFT = () => {
@@ -83,25 +126,25 @@ const CreateNFT = () => {
     >
       <CreateTitle>Create NFT</CreateTitle>
       <CreateFormContainer>
-        <InputTitle>Upload your file</InputTitle>
-        <InputTitle>Preview</InputTitle>
+        <UploadFileTitle>Upload your file</UploadFileTitle>
+        <PreviewTitle>Preview</PreviewTitle>
         <FormatContainer>
-          <InputTitle>Sell Format</InputTitle>
+          <SellFormatTitle>Sell Format</SellFormatTitle>
           <Tags>Auction</Tags>
           <Tags>Normal</Tags>
         </FormatContainer>
-        <InputTitle>Description</InputTitle>
-        <Input type="text" />
+        <DescriptionTitle>Description</DescriptionTitle>
+        <InputDescription />
         <FormatContainer>
-          <InputTitle>Tags</InputTitle>
+          <TagsTitle>Tags</TagsTitle>
           <Input type="text" />
         </FormatContainer>
         <FormatContainer>
-          <InputTitle>Ends</InputTitle>
+          <EndsTitle>Ends</EndsTitle>
           <Input type="date" />
         </FormatContainer>
         <FormatContainer>
-          <InputTitle>Reserve Bid</InputTitle>
+          <ReserveTitle>Reserve Bid</ReserveTitle>
           <Input type="text" />
         </FormatContainer>
       </CreateFormContainer>
