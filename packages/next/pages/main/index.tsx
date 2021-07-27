@@ -1,8 +1,21 @@
 import styled from "styled-components";
 import { Title } from "../../../shared/designSystem";
 import Card from "../../components/Card/Card";
+import { motion } from "framer-motion";
 
-const MainPageWrapper = styled.div`
+const cardVariants = {
+  visible: {
+    opacity: 1,
+    transition: {
+      duration: 2,
+    },
+  },
+  hidden: {
+    opacity: 0,
+  },
+};
+
+const MainPageWrapper = styled(motion.div)`
   display: flex;
   width: 60%;
   flex-direction: column;
@@ -31,7 +44,7 @@ const MainTitle = styled(Title)`
 
 const MainPage = () => {
   return (
-    <MainPageWrapper>
+    <MainPageWrapper variants={cardVariants} animate="visible" initial="hidden">
       <MainTitle>Featured NFTs</MainTitle>
       <MainCardContainer>
         <Card />

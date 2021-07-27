@@ -2,6 +2,7 @@ import styled from "styled-components";
 import { Title } from "../../../shared/designSystem";
 import { ButtonText } from "../Header";
 import { motion } from "framer-motion";
+import { useRouter } from "next/router";
 
 const buttonVariants = {
   visible: {
@@ -64,12 +65,16 @@ const HeroButton = styled(motion.button)`
 `;
 
 const Hero = () => {
+  const router = useRouter();
+
   return (
     <HeroContainer variants={heroVariants} animate="visible" initial="hidden">
       <HeroTitle>UNEARTH NFTS FROM THE DEPTHS</HeroTitle>
       <HeroSubtitle>Are you prepared for this journey down under?</HeroSubtitle>
       <HeroButton variants={buttonVariants} animate="visible" initial="hidden">
-        <ButtonText>Descend into the Nether's Den</ButtonText>
+        <ButtonText onClick={() => router.push("/main")}>
+          Descend into the Nether's Den
+        </ButtonText>
       </HeroButton>
     </HeroContainer>
   );

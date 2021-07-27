@@ -7,6 +7,7 @@ import sizes from "../../../shared/designSystem/sizes";
 import { AiOutlineMenu, AiOutlineClose } from "react-icons/ai";
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { useRouter } from "next/router";
 
 const headerVariants = {
   visible: {
@@ -150,6 +151,8 @@ const HeaderButton = styled(Button)<HeaderButtonProps>`
 
 const Header = (hasBackground: boolean = true) => {
   const [toggleSideMenu, setToggleSideMenu] = useState(false);
+  const router = useRouter();
+
   // async function requestAccount() {
   //   const web3Modal = new Web3Modal();
   //   const connection = await web3Modal.connect();
@@ -179,7 +182,7 @@ const Header = (hasBackground: boolean = true) => {
       >
         <LogoContainer>
           {/* <Logo /> */}
-          <LogoText>NETHERDEN</LogoText>
+          <LogoText onClick={() => router.push("/")}>NETHERDEN</LogoText>
         </LogoContainer>
         <LinksContainer>
           {renderNavItem("FAQ")}
