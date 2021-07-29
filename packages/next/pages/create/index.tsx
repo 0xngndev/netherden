@@ -16,7 +16,7 @@ const formVariants = {
 
 const CreatePageWrapper = styled(motion.div)`
   display: flex;
-  width: 80%;
+  width: 40%;
   flex-direction: column;
   justify-content: center;
   align-items: center;
@@ -30,6 +30,12 @@ const CreateFormContainer = styled.div`
   align-items: center;
   width: 100%;
   height: 100%;
+  border: 1px solid var(--primaryColor);
+  box-shadow: -1px 2px 36px #662be3;
+  border-radius: 6px;
+  margin-bottom: 2rem;
+  padding-bottom: 2rem;
+
   /* border: 1px solid var(--primaryColor); */
 `;
 
@@ -65,24 +71,32 @@ const SellFormatTitle = styled(InputTitle)`
 const DescriptionTitle = styled(InputTitle)`
   align-self: start;
   padding-left: 3rem;
+  line-height: 45px;
 `;
 
 const TagsTitle = styled(InputTitle)`
-  padding-right: 5rem;
+  align-self: start;
+  padding-left: 3rem;
+  line-height: 45px;
 `;
 
 const EndsTitle = styled(InputTitle)`
-  padding-right: 5rem;
+  align-self: start;
+  padding-left: 3rem;
+  line-height: 45px;
 `;
 
-const ReserveTitle = styled(InputTitle)``;
+const ReserveTitle = styled(InputTitle)`
+  align-self: start;
+  padding-left: 3rem;
+  line-height: 45px;
+`;
 
 const FormatContainer = styled.div`
   display: flex;
   flex-direction: row;
   width: 100%;
   padding-left: 3rem;
-  padding-bottom: 2rem;
 `;
 
 const Tags = styled.span`
@@ -93,20 +107,28 @@ const Tags = styled.span`
   margin-right: 1rem;
   border-radius: 6px;
   align-self: center;
+  cursor: pointer;
 `;
 
 const Input = styled.input`
-  width: 40%;
+  width: 90%;
   margin: 2rem;
   background: transparent;
   border: 1px solid var(--primaryColor);
   border-radius: 6px;
   height: 30px;
-  align-self: center;
+  align-self: start;
+  margin-left: 3rem;
+  margin-top: 0rem;
+
+  ::placeholder {
+    font-family: "Miriam Libre";
+    padding-left: 1rem;
+  }
 `;
 
 const InputDescription = styled.textarea`
-  width: 50%;
+  width: 90%;
   background: transparent;
   border: 1px solid var(--primaryColor);
   border-radius: 6px;
@@ -115,6 +137,12 @@ const InputDescription = styled.textarea`
   margin-left: 3rem;
   margin-bottom: 2rem;
   margin-top: 0rem;
+
+  ::placeholder {
+    font-family: "Miriam Libre";
+    padding-top: 0.5rem;
+    padding-left: 1rem;
+  }
 `;
 
 const CreateNFT = () => {
@@ -134,19 +162,16 @@ const CreateNFT = () => {
           <Tags>Normal</Tags>
         </FormatContainer>
         <DescriptionTitle>Description</DescriptionTitle>
-        <InputDescription />
-        <FormatContainer>
-          <TagsTitle>Tags</TagsTitle>
-          <Input type="text" />
-        </FormatContainer>
-        <FormatContainer>
-          <EndsTitle>Ends</EndsTitle>
-          <Input type="date" />
-        </FormatContainer>
-        <FormatContainer>
-          <ReserveTitle>Reserve Bid</ReserveTitle>
-          <Input type="text" />
-        </FormatContainer>
+        <InputDescription placeholder="What a wonderful world" />
+
+        <TagsTitle>Tags</TagsTitle>
+        <Input type="text" placeholder="Fantasy" />
+
+        <EndsTitle>Ends</EndsTitle>
+        <Input type="date" />
+
+        <ReserveTitle>Reserve Bid</ReserveTitle>
+        <Input type="text" placeholder="20 MATIC" />
       </CreateFormContainer>
     </CreatePageWrapper>
   );
