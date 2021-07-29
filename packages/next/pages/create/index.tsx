@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import sizes from "../../../shared/designSystem/sizes";
 import { Title } from "../../../shared/designSystem";
 import { motion } from "framer-motion";
 
@@ -16,11 +17,15 @@ const formVariants = {
 
 const CreatePageWrapper = styled(motion.div)`
   display: flex;
-  width: 40%;
+  width: 50%;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   margin: auto;
+
+  @media (max-width: ${sizes.lg}px) {
+    width: 80%;
+  }
 `;
 
 const CreateFormContainer = styled.div`
@@ -34,8 +39,10 @@ const CreateFormContainer = styled.div`
   box-shadow: -1px 2px 36px #662be3;
   border-radius: 6px;
   margin-bottom: 2rem;
+  margin-top: 1rem;
   padding-bottom: 2rem;
-
+  padding-right: 4rem;
+  padding-left: 4rem;
   /* border: 1px solid var(--primaryColor); */
 `;
 
@@ -56,39 +63,35 @@ const InputTitle = styled(Title)`
   margin: 0;
 `;
 
-const UploadFileTitle = styled(InputTitle)`
-  padding-left: 3rem;
-`;
+const UploadFileTitle = styled(InputTitle)``;
 
-const PreviewTitle = styled(InputTitle)`
-  padding-left: 3rem;
-`;
+const PreviewTitle = styled(InputTitle)``;
 
 const SellFormatTitle = styled(InputTitle)`
-  margin-right: 2rem;
+  line-height: 45px;
 `;
 
 const DescriptionTitle = styled(InputTitle)`
   align-self: start;
-  padding-left: 3rem;
+
   line-height: 45px;
 `;
 
 const TagsTitle = styled(InputTitle)`
   align-self: start;
-  padding-left: 3rem;
+
   line-height: 45px;
 `;
 
 const EndsTitle = styled(InputTitle)`
   align-self: start;
-  padding-left: 3rem;
+
   line-height: 45px;
 `;
 
 const ReserveTitle = styled(InputTitle)`
   align-self: start;
-  padding-left: 3rem;
+
   line-height: 45px;
 `;
 
@@ -96,7 +99,6 @@ const FormatContainer = styled.div`
   display: flex;
   flex-direction: row;
   width: 100%;
-  padding-left: 3rem;
 `;
 
 const Tags = styled.span`
@@ -108,33 +110,39 @@ const Tags = styled.span`
   border-radius: 6px;
   align-self: center;
   cursor: pointer;
+  margin-bottom: 2rem;
 `;
 
 const Input = styled.input`
-  width: 90%;
+  width: 100%;
   margin: 2rem;
   background: transparent;
   border: 1px solid var(--primaryColor);
   border-radius: 6px;
   height: 30px;
   align-self: start;
-  margin-left: 3rem;
+  margin-left: 0rem;
   margin-top: 0rem;
 
   ::placeholder {
     font-family: "Miriam Libre";
     padding-left: 1rem;
   }
+
+  &:focus {
+    outline: none;
+    box-shadow: 0px 0px 10px #662be3;
+  }
 `;
 
 const InputDescription = styled.textarea`
-  width: 90%;
+  width: 100%;
   background: transparent;
   border: 1px solid var(--primaryColor);
   border-radius: 6px;
   align-self: start;
   min-height: 100px;
-  margin-left: 3rem;
+
   margin-bottom: 2rem;
   margin-top: 0rem;
 
@@ -142,6 +150,11 @@ const InputDescription = styled.textarea`
     font-family: "Miriam Libre";
     padding-top: 0.5rem;
     padding-left: 1rem;
+  }
+
+  &:focus {
+    outline: none;
+    box-shadow: 0px 0px 10px #662be3;
   }
 `;
 
@@ -156,8 +169,8 @@ const CreateNFT = () => {
       <CreateFormContainer>
         <UploadFileTitle>Upload your file</UploadFileTitle>
         <PreviewTitle>Preview</PreviewTitle>
+        <SellFormatTitle>Sell Format</SellFormatTitle>
         <FormatContainer>
-          <SellFormatTitle>Sell Format</SellFormatTitle>
           <Tags>Auction</Tags>
           <Tags>Normal</Tags>
         </FormatContainer>
